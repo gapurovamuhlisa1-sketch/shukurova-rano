@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shukurova Ra‘no Uktamovna — ish faoliyati</title>
+<meta name="description" content="Toshkent tumani 10-sonli umumta’lim maktabi direktori Shukurova Ra‘no Uktamovnaning ish faoliyati haqida taqdimot">
+<meta property="og:title" content="Shukurova Ra‘no Uktamovna — ish faoliyati">
+<meta property="og:description" content="Toshkent tumani 10-sonli umumta’lim maktabi direktori">
+<meta property="og:image" content="s-01.jpg">
+<meta name="theme-color" content="#0c2420">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Montserrat:wght@500;600&display=swap">
+<style>
+  :root { --bg:#0c2420; --em:#12332d; --gold:#c9a96e; --iv:#f6f1e9; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { height:100%; background:var(--bg); color:var(--iv); font-family:Montserrat, Arial, sans-serif; overflow:hidden; -webkit-tap-highlight-color:transparent; }
+  .app { height:100%; display:flex; flex-direction:column; padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+  header { flex:0 0 auto; text-align:center; padding:14px 12px 6px; }
+  header p { font-size:10px; letter-spacing:4px; color:var(--gold); font-weight:600; }
+  header h1 { font-family:'Cormorant Garamond', Georgia, serif; font-style:italic; font-weight:500; font-size:24px; margin-top:2px; }
+  .track { flex:1 1 auto; display:flex; overflow-x:auto; overflow-y:hidden; scroll-snap-type:x mandatory; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+  .track::-webkit-scrollbar { display:none; }
+  .slide { flex:0 0 100%; scroll-snap-align:center; display:flex; align-items:center; justify-content:center; padding:8px 12px; }
+  .frame { position:relative; width:min(100%, calc((100vh - 150px) * 16 / 9)); aspect-ratio:16/9; background:var(--em); box-shadow:0 10px 40px rgba(0,0,0,.45); overflow:hidden; }
+  .frame img, .frame video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .frame.vid { outline:1px solid var(--gold); background:#000; }
+  .frame.vid video { object-fit:contain; }
+  nav { flex:0 0 auto; display:flex; align-items:center; justify-content:center; gap:18px; padding:10px 12px 16px; }
+  nav button { width:44px; height:44px; border-radius:50%; border:1px solid var(--gold); background:transparent; color:var(--gold); font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  nav button:disabled { opacity:.3; cursor:default; }
+  .dots { display:flex; gap:7px; align-items:center; }
+  .dots i { width:7px; height:7px; border-radius:50%; background:#3d6b5f; transition:all .25s; }
+  .dots i.on { background:var(--gold); width:20px; border-radius:4px; }
+  .count { font-size:12px; color:#9fb3ab; min-width:48px; text-align:center; letter-spacing:1px; }
+  .hint { position:fixed; left:50%; bottom:calc(84px + env(safe-area-inset-bottom)); transform:translateX(-50%); font-size:11px; color:#9fb3ab; white-space:nowrap; transition:opacity .6s; pointer-events:none; }
+  @media (orientation:landscape) and (max-height:520px) {
+    header { display:none; }
+    .frame { width:min(100%, calc((100vh - 70px) * 16 / 9)); }
+    nav { padding:4px 12px 8px; }
+    .hint { display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <p>ISH FAOLIYATI HAQIDA TAQDIMOT</p>
+    <h1>Shukurova Ra‘no Uktamovna</h1>
+  </header>
+
+  <div class="track" id="track">
+    <section class="slide"><div class="frame"><img src="s-01.jpg" alt="Shukurova Ra‘no Uktamovna"></div></section>
+    <section class="slide"><div class="frame"><img src="s-02.jpg" alt="Shaxsiy ma’lumotlar" loading="lazy"></div></section>
+    <section class="slide"><div class="frame"><img src="s-03.jpg" alt="Mehnat faoliyati" loading="lazy"></div></section>
+    <section class="slide"><div class="frame"><img src="s-04.jpg" alt="Rahbarlik" loading="lazy"></div></section>
+    <section class="slide"><div class="frame"><img src="s-05.jpg" alt="Yangi sport maydoni ochildi" loading="lazy"></div></section>
+    <section class="slide"><div class="frame vid"><video id="vid" src="video.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video></div></section>
+    <section class="slide"><div class="frame"><img src="s-07.jpg" alt="Faoliyat yo‘nalishlari" loading="lazy"></div></section>
+    <section class="slide"><div class="frame"><img src="s-08.jpg" alt="Malaka oshirish" loading="lazy"></div></section>
+    <section class="slide"><div class="frame"><img src="s-09.jpg" alt="Ilmiy maqola" loading="lazy"></div></section>
+    <section class="slide"><div class="frame"><img src="s-10.jpg" alt="Tashakkurnomalar" loading="lazy"></div></section>
+    <section class="slide"><div class="frame"><img src="s-11.jpg" alt="Rahmat" loading="lazy"></div></section>
+  </div>
+
+  <nav>
+    <button id="prev" aria-label="Oldingi slayd">‹</button>
+    <div>
+      <div class="dots" id="dots"></div>
+      <div class="count" id="count">1 / 11</div>
+    </div>
+    <button id="next" aria-label="Keyingi slayd">›</button>
+  </nav>
+  <div class="hint" id="hint">Surib o‘ting · telefonni yotqizsangiz kattaroq ko‘rinadi</div>
+</div>
+
+<script>
+(function () {
+  var track = document.getElementById('track');
+  var slides = track.querySelectorAll('.slide');
+  var dots = document.getElementById('dots');
+  var count = document.getElementById('count');
+  var prev = document.getElementById('prev');
+  var next = document.getElementById('next');
+  var vid = document.getElementById('vid');
+  var hint = document.getElementById('hint');
+  var n = slides.length, cur = 0;
+
+  for (var i = 0; i < n; i++) { dots.appendChild(document.createElement('i')); }
+
+  function update(i) {
+    cur = i;
+    var d = dots.children;
+    for (var k = 0; k < d.length; k++) { d[k].className = k === i ? 'on' : ''; }
+    count.textContent = (i + 1) + ' / ' + n;
+    prev.disabled = i === 0;
+    next.disabled = i === n - 1;
+    if (vid && slides[i].querySelector('video') !== vid && !vid.paused) { vid.pause(); }
+  }
+  function go(i) {
+    i = Math.max(0, Math.min(n - 1, i));
+    track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+  }
+
+  var t;
+  track.addEventListener('scroll', function () {
+    clearTimeout(t);
+    t = setTimeout(function () { update(Math.round(track.scrollLeft / track.clientWidth)); }, 60);
+    if (hint) { hint.style.opacity = 0; }
+  });
+  prev.addEventListener('click', function () { go(cur - 1); });
+  next.addEventListener('click', function () { go(cur + 1); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { go(cur + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(cur - 1); }
+  });
+  window.addEventListener('resize', function () { track.scrollLeft = cur * track.clientWidth; });
+  setTimeout(function () { if (hint) { hint.style.opacity = 0; } }, 6000);
+  update(0);
+})();
+</script>
+</body>
+</html>
